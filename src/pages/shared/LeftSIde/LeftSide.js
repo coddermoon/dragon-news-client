@@ -15,11 +15,14 @@ const LeftSide = () => {
             <h6>Categories : {categories.length}</h6>
             {
                 categories.map(category =>
-                   <>
-                   
+                   <div
+                   key={category.id}
+                   >
+                  
                     <Link
-                    key={category.id} to={`category/${category.id}`}>{category.name}</Link><br />
-                   </>
+                    
+                     to={`category/${category.id}`}>{category.name}</Link><br />
+                   </div>
                 )
             }
         </div>

@@ -15,7 +15,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import BrandCarosel from "../BrandCarosel/BrandCarosel";
 const RightSide = () => {
   return (
-    <div>
+    <div className="my-3">
       <ButtonGroup vertical>
         <Button className="mb-2" variant="outline-primary">
           <FaGoogle /> Sign in With google

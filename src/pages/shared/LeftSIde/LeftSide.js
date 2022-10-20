@@ -11,7 +11,7 @@ const LeftSide = () => {
         .then(data=>setCategories(data))
     },[])
     return (
-        <div>
+        <div className='my-3'>
             <h6>Categories : {categories.length}</h6>
             {
                 categories.map(category =>

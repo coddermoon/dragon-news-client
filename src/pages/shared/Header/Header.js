@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
-import { Button, Image, NavDropdown } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import { FaUser } from 'react-icons/fa';
 import LeftSide from '../LeftSIde/LeftSide';
 
@@ -42,8 +42,8 @@ const handleLogOut = ()=>{
                               </div>
                               :
                               <div className='d-flex flex-direction-column align-items-center'>
-                                  <Link to='/login'><Nav.Link>Login</Nav.Link> </Link>
-                                  <Link to='/register'><Nav.Link>Register</Nav.Link></Link>
+                                  <Link className='px-2 text-decoration-none' to='/login'>Login </Link>
+                                  <Link className='px-2 text-decoration-none' to='/register'>Register</Link>
                               </div>
                       }
 

@@ -5,32 +5,67 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { Button, Image, NavDropdown } from 'react-bootstrap';
+import { FaUser } from 'react-icons/fa';
+import LeftSide from '../LeftSIde/LeftSide';
 
 
 
 const Header = () => {
 
-const {user} = useContext(AuthContext)
+const {user,logout} = useContext(AuthContext)
 console.log(user)
 
+const handleLogOut = ()=>{
+  logout()
+  .then(()=> alert('succesfully out'))
+  .catch(err=>alert(err.message))
+}
 
     return (
-        <Navbar bg="light" variant='light' expand="lg">
+      <Navbar collapseOnSelect className='mb-4' expand="lg" bg="light" variant="light">
       <Container>
-        <Navbar.Brand ><Link className='logo' to="/">
-        <span className='bg-primary p-2 rounded text-white font-weight-bold'>Dragon</span> News
-          </Link></Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="home">Home</Nav.Link>
-            <Nav.Link href="link">Link</Nav.Link>
-            <Nav.Link href="link">{user?.displayName}</Nav.Link>
-           
-          </Nav>
-        </Navbar.Collapse>
+      <Navbar.Brand ><Link className='logo' to="/"> <span className='bg-primary p-2 rounded text-white font-weight-bold'>Dragon</span> News </Link></Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto">
+                
+                 
+              </Nav>
+              <Nav>
+                  
+                      {
+                          user?.uid ?
+                              <div className='d-flex flex-direction-column align-items-center'>
+                                  <span>{user?.displayName}</span>
+                                  <Button variant="light" onClick={handleLogOut}>Log out</Button>
+                              </div>
+                              :
+                              <div className='d-flex flex-direction-column align-items-center'>
+                                  <Link to='/login'><Nav.Link>Login</Nav.Link> </Link>
+                                  <Link to='/register'><Nav.Link>Register</Nav.Link></Link>
+                              </div>
+                      }
+
+
+                 
+                  <Nav.Link eventKey={2} href="#memes">
+                      {user?.photoURL ?
+                          <Image
+                              style={{ height: '30px' }}
+                              roundedCircle
+                              src={user?.photoURL}>
+                          </Image>
+                          : <FaUser></FaUser>
+                      }
+                  </Nav.Link>
+              </Nav>
+              <div className='d-lg-none'>
+                  <LeftSide></LeftSide>
+              </div>
+          </Navbar.Collapse>
       </Container>
-    </Navbar>
+      </Navbar>
     );
 };
 

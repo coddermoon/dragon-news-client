@@ -16,7 +16,7 @@ function App() {
      <Container>
        
    <Row>
-    <Col lg="2">
+    <Col lg="2 "  className='d-none d-lg-block'>
     <LeftSide/>
     </Col>
 

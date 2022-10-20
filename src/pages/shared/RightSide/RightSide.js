@@ -1,10 +1,14 @@
 import React from 'react';
+import { Button, ButtonGroup } from 'react-bootstrap';
 import './RightSIde.css'
 
 const RightSide = () => {
     return (
         <div>
-            <h4>this is right</h4>
+          <ButtonGroup vertical>
+          <Button>Button</Button>
+      <Button>Button</Button>
+          </ButtonGroup>
         </div>
     );
 };

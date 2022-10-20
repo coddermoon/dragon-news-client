@@ -13,6 +13,7 @@ const Header = () => {
 const {user} = useContext(AuthContext)
 console.log(user)
 
+
     return (
         <Navbar bg="light" variant='light' expand="lg">
       <Container>
@@ -24,7 +25,7 @@ console.log(user)
           <Nav className="me-auto">
             <Nav.Link href="home">Home</Nav.Link>
             <Nav.Link href="link">Link</Nav.Link>
-            <Nav.Link href="link">{user.DisplayName}</Nav.Link>
+            <Nav.Link href="link">{user?.displayName}</Nav.Link>
            
           </Nav>
         </Navbar.Collapse>

@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 
 
 const Header = () => {
+
+const {user} = useContext(AuthContext)
+console.log(user)
+
     return (
         <Navbar bg="light" variant='light' expand="lg">
       <Container>
@@ -19,6 +24,7 @@ const Header = () => {
           <Nav className="me-auto">
             <Nav.Link href="home">Home</Nav.Link>
             <Nav.Link href="link">Link</Nav.Link>
+            <Nav.Link href="link">{user.DisplayName}</Nav.Link>
            
           </Nav>
         </Navbar.Collapse>
